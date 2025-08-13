@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            height: 440px;
+            width: 400px;
+            margin: auto;
+            gap: 2px;
+            font-size: 50px;
+
+        }
+        input{
+            grid-column: 1/-1;
+        }
+        #btn{
+            grid-column: 3/-1;
+        }
+        button,input{
+            box-shadow: 2px 2px 3px 3px black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <input type="text" name="" id="">
+            <button value="AC">AC</button>
+            <button value="DE">DE</button>
+            <button value=".">.</button>
+            <button value="/">/</button>
+            <button value="7">7</button>
+            <button value="8">8</button>
+            <button value="9">9</button>
+            <button value="*">*</button>
+            <button value="4">4</button>
+            <button value="5">5</button>
+            <button value="6">6</button>
+            <button value="-">-</button>
+            <button value="1">1</button> 
+            <button value="2">2</button>
+            <button value="3">3</button>
+            <button value="+">+</button>
+            <button value="00">00</button>
+            <button value="0">0</button>
+            <button value="=" id="btn">=</button>
+        </div>
+    </div>
+</body>
+<script>
+    let btns=document.querySelectorAll('button');
+    let input=document.querySelector('input');
+    Array.from(btns);
+    btns.forEach((btn)=>{
+        btn.addEventListener('click',()=>{
+            if (btn.value==='=') {
+                    input.value=eval(input.value)
+                }else if(btn.value==='AC'){
+                    input.value='';
+                }else if(btn.value==='DE'){
+                    input.value=input.value.slice(0,-1);
+                }else{ 
+                    input.value +=btn.innerHTML
+                }
+                
+        })
+    })
+</script>
+</html>
